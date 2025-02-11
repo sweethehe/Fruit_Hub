@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/components/salad_tile.dart';
 import 'package:fruit_hub/components/search_bar.dart';
 import 'package:fruit_hub/components/ui.dart';
@@ -22,6 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
     "New combo",
     "Favorites"
   ];
+
+  ///////////////////////////////////////////////////////////////////////
+  
+  
   final List<Widget> categoryContents = [
     SizedBox(
       height: 250,
@@ -88,6 +93,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     )
   ];
+
+
+
+  ////////////////////////////////////////////////
+  
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,15 +151,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text.rich(
                   TextSpan(
                       text: "Hello ${widget.username},",
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(fontSize: 20),
                       children: [
                         TextSpan(
-                            text: " What fruit salad combo do you want today ?",
+                            text: " What fruit salad \ncombo do you want today ?",
                             style: TextStyle(
                                 color: darkBlue, fontWeight: FontWeight.bold))
                       ]),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
                 // Search Bar
                 Row(
                   children: [
@@ -163,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   "Recommended Combo",
                   style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 24.h,
                       color: darkBlue,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.left,
@@ -200,17 +213,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         },
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 17),
+                          padding: EdgeInsets.symmetric(horizontal: 17.h),
                           child: Text(
                             categories[index],
                             style: TextStyle(
                               color: selectedCategory == index
                                   ? darkBlue
-                                  : Colors.black,
+                                  : listGrey,
                               fontWeight: selectedCategory == index
                                   ? FontWeight.bold
                                   : FontWeight.normal,
-                              fontSize: selectedCategory == index ? 25 : 18,
+                              fontSize: selectedCategory == index ? 24.h : 16.h,
                               decoration: selectedCategory == index
                                   ? TextDecoration.underline
                                   : TextDecoration.none,

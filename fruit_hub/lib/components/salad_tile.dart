@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/components/ui.dart';
 
 class SaladTile extends StatefulWidget {
@@ -19,14 +20,15 @@ class _SaladTileState extends State<SaladTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.only(right: 24.w),
       child: Container(
-        width: 190,
+        width: 180.w,
+        height: 183.h,
         decoration: BoxDecoration(
           color: white,
-          borderRadius: const BorderRadius.all(Radius.circular(18)),
+          borderRadius: BorderRadius.all(Radius.circular(16.r)),
         ),
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(10.h),
         child: Column(
           children: [
             Align(
@@ -36,18 +38,19 @@ class _SaladTileState extends State<SaladTile> {
                   icon: Icon(
                     Icons.favorite_border_rounded,
                     color: lightOrange,
+                    size: 20.h,
                   )),
             ),
             Image.asset(
               widget.image,
-              height: 100,
-              width: 100,
+              height: 80.h,
+              width: 80.h,
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: 8.h),
             Text(widget.name,
-                style: const TextStyle(
+                style: TextStyle(
                     color: darkBlue,
-                    fontSize: 17,
+                    fontSize: 16.h,
                     fontWeight: FontWeight.bold)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -55,12 +58,13 @@ class _SaladTileState extends State<SaladTile> {
                 Text(widget.price,
                     style: TextStyle(
                         color: lightOrange,
-                        fontSize: 15,
+                        fontSize: 14.h,
                         fontWeight: FontWeight.bold)),
                 IconButton(
                     onPressed: () {},
                     icon: Icon(
                       Icons.add_circle_outline_rounded,
+                      size: 24.h,
                       color: lightOrange,
                     ))
               ],

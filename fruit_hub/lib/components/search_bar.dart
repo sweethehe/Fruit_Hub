@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/components/ui.dart';
 
 class MySearchBar extends StatefulWidget {
@@ -17,7 +18,7 @@ class _MySearchBarState extends State<MySearchBar> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        borderRadius: BorderRadius.all(Radius.circular(16.h)),
         color: const Color.fromARGB(50, 173, 172, 172),
       ),
       child: Row(

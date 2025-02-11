@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_hub/pages/splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,11 +12,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: GoogleFonts.nunito().fontFamily,
-        ),
-        home: SplashScreen());
+    return ScreenUtilInit(
+       designSize: Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            fontFamily: GoogleFonts.nunito().fontFamily,
+          ),
+          home: SplashScreen());
+      },
+    );
   }
 }
