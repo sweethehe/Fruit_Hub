@@ -7,8 +7,10 @@ class SaladTile extends StatefulWidget {
   final String price;
   final String image;
   final Color color;
+  final Function() onTap;
   const SaladTile(
       {super.key,
+      required this.onTap,
       required this.color,
       required this.name,
       required this.price,
@@ -21,57 +23,60 @@ class SaladTile extends StatefulWidget {
 class _SaladTileState extends State<SaladTile> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(right: 24.w),
-      child: Container(
-        width: 180.w,
-        height: 183.h,
-        decoration: BoxDecoration(
-          color: widget.color,
-          borderRadius: BorderRadius.all(Radius.circular(16.r)),
-        ),
-        padding: EdgeInsets.all(10.h),
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.favorite_border_rounded,
-                    color: lightOrange,
-                    size: 20.h,
-                  )),
-            ),
-            Image.asset(
-              widget.image,
-              height: 80.h,
-              width: 80.h,
-            ),
-            SizedBox(height: 8.h),
-            Text(widget.name,
-                style: TextStyle(
-                    color: darkBlue,
-                    fontSize: 16.h,
-                    fontWeight: FontWeight.bold)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(widget.price,
-                    style: TextStyle(
-                        color: lightOrange,
-                        fontSize: 14.h,
-                        fontWeight: FontWeight.bold)),
-                IconButton(
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Padding(
+        padding: EdgeInsets.only(right: 24.w),
+        child: Container(
+          width: 180.w,
+          height: 183.h,
+          decoration: BoxDecoration(
+            color: widget.color,
+            borderRadius: BorderRadius.all(Radius.circular(16.r)),
+          ),
+          padding: EdgeInsets.all(10.h),
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
                     onPressed: () {},
                     icon: Icon(
-                      Icons.add_circle_outline_rounded,
-                      size: 24.h,
+                      Icons.favorite_border_rounded,
                       color: lightOrange,
-                    ))
-              ],
-            )
-          ],
+                      size: 20.h,
+                    )),
+              ),
+              Image.asset(
+                widget.image,
+                height: 80.h,
+                width: 80.h,
+              ),
+              SizedBox(height: 8.h),
+              Text(widget.name,
+                  style: TextStyle(
+                      color: darkBlue,
+                      fontSize: 16.h,
+                      fontWeight: FontWeight.bold)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(widget.price,
+                      style: TextStyle(
+                          color: lightOrange,
+                          fontSize: 14.h,
+                          fontWeight: FontWeight.bold)),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.add_circle_outline_rounded,
+                        size: 24.h,
+                        color: lightOrange,
+                      ))
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/components/data_base.dart';
+import 'package:fruit_hub/components/navigateToPage.dart';
 import 'package:fruit_hub/components/salad_tile.dart';
 import 'package:fruit_hub/components/search_bar.dart';
 import 'package:fruit_hub/components/ui.dart';
+import 'package:fruit_hub/pages/salad_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final String username;
@@ -24,93 +27,179 @@ class _HomeScreenState extends State<HomeScreen> {
     "Favorites"
   ];
 
-  ///////////////////////////////////////////////////////////////////////
-  
-  
-  final List<Widget> categoryContents = [
-    SizedBox(
-      height: 250,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          SaladTile(
-            color: Color(0xFFFFFAEB),
-              name: "Quinoa Salad",
-              price: "2500 FCFA",
-              image: "assets/images/combo/quinoa_salad.png"),
-          SaladTile(
-              color: Color.fromARGB(72, 255, 165, 81),
-              name: "Tropical Fruit Salad",
-              price: "2500 FCFA",
-              image: "assets/images/combo/tropical_fruit_salad.png"),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 250,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          SaladTile(
-              color: Color(0xFFF1EFF6),
-              name: "Melon Fruit Salad",
-              price: "2500 FCFA",
-              image: "assets/images/combo/melon_fruit_salad.png"),
-          SaladTile(
-              color: Color.fromARGB(72, 255, 165, 81),
-              name: "Berry mango combo",
-              price: "2500 FCFA",
-              image: "assets/images/combo/berry_fruit_combo.png"),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 250,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          SaladTile(
-              color: Color(0xFFFFFAEB),
-              name: "Berry Fruit Salad",
-              price: "2500 FCFA",
-              image: "assets/images/combo/berry_fruit_combo.png"),
-          SaladTile(
-              color: Color.fromARGB(72, 255, 165, 81),
-              name: "Berry mango combo",
-              price: "2500 FCFA",
-              image: "assets/images/combo/berry_fruit_combo.png"),
-        ],
-      ),
-    ),
-    SizedBox(
-      height: 250,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          SaladTile(
-              color: Color(0xFFFFFAEB),
-              name: "Honey lime combo",
-              price: "2500 FCFA",
-              image: "assets/images/combo/Honey_lime_combo.png"),
-          SaladTile(
-              color: Color.fromARGB(72, 255, 165, 81),
-              name: "Berry mango combo",
-              price: "2500 FCFA",
-              image: "assets/images/combo/berry_fruit_combo.png"),
-        ],
-      ),
-    )
-  ];
-
-
-
-  ////////////////////////////////////////////////
-  
-
-
-
   @override
   Widget build(BuildContext context) {
+    final List<Widget> categoryContents = [
+      SizedBox(
+        height: 250,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            SaladTile(
+                onTap: () {
+                  navigateToPage(
+                      context,
+                      SaladDetail(
+                        title: salads[2]["name"],
+                        image: salads[2]["image"],
+                        price: salads[2]["price"],
+                        ingredients: salads[2]["ingredients"],
+                        comment: salads[2]["comment"],
+                        username: widget.username,
+                      ));
+                },
+                color: Color(0xFFFFFAEB),
+                name: "Quinoa Salad",
+                price: "2500 FCFA",
+                image: "assets/images/combo/quinoa_salad.png"),
+            SaladTile(
+                onTap: () {
+                  navigateToPage(
+                      context,
+                      SaladDetail(
+                        title: salads[3]["name"],
+                        image: salads[3]["image"],
+                        price: salads[3]["price"],
+                        ingredients: salads[3]["ingredients"],
+                        comment: salads[3]["comment"],
+                        username: widget.username,
+                      ));
+                },
+                color: Color.fromARGB(72, 255, 165, 81),
+                name: "Tropical Fruit Salad",
+                price: "2500 FCFA",
+                image: "assets/images/combo/tropical_fruit_salad.png"),
+          ],
+        ),
+      ),
+      SizedBox(
+        height: 250,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            SaladTile(
+                onTap: () {
+                  navigateToPage(
+                      context,
+                      SaladDetail(
+                        title: salads[4]["name"],
+                        image: salads[4]["image"],
+                        price: salads[4]["price"],
+                        ingredients: salads[4]["ingredients"],
+                        comment: salads[4]["comment"],
+                        username: widget.username,
+                      ));
+                },
+                color: Color(0xFFF1EFF6),
+                name: "Melon Fruit Salad",
+                price: "2500 FCFA",
+                image: "assets/images/combo/melon_fruit_salad.png"),
+            SaladTile(
+                onTap: () {
+                  navigateToPage(
+                      context,
+                      SaladDetail(
+                        title: salads[5]["name"],
+                        image: salads[5]["image"],
+                        price: salads[5]["price"],
+                        ingredients: salads[5]["ingredients"],
+                        comment: salads[5]["comment"],
+                        username: widget.username,
+                      ));
+                },
+                color: Color.fromARGB(72, 255, 165, 81),
+                name: "Berry mango combo",
+                price: "2500 FCFA",
+                image: "assets/images/combo/berry_fruit_combo.png"),
+          ],
+        ),
+      ),
+      SizedBox(
+        height: 250,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            SaladTile(
+                onTap: () {
+                  navigateToPage(
+                      context,
+                      SaladDetail(
+                        title: salads[5]["name"],
+                        image: salads[5]["image"],
+                        price: salads[5]["price"],
+                        ingredients: salads[5]["ingredients"],
+                        comment: salads[5]["comment"],
+                        username: widget.username,
+                      ));
+                },
+                color: Color(0xFFFFFAEB),
+                name: "Berry Fruit Salad",
+                price: "2500 FCFA",
+                image: "assets/images/combo/berry_fruit_combo.png"),
+            SaladTile(
+                onTap: () {
+                  navigateToPage(
+                      context,
+                      SaladDetail(
+                        title: salads[4]["name"],
+                        image: salads[4]["image"],
+                        price: salads[4]["price"],
+                        ingredients: salads[4]["ingredients"],
+                        comment: salads[4]["comment"],
+                        username: widget.username,
+                      ));
+                },
+                color: Color.fromARGB(72, 255, 165, 81),
+                name: "Berry mango combo",
+                price: "2500 FCFA",
+                image: "assets/images/combo/berry_fruit_combo.png"),
+          ],
+        ),
+      ),
+      SizedBox(
+        height: 250,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            SaladTile(
+                onTap: () {
+                  navigateToPage(
+                      context,
+                      SaladDetail(
+                        title: salads[0]["name"],
+                        image: salads[0]["image"],
+                        price: salads[0]["price"],
+                        ingredients: salads[0]["ingredients"],
+                        comment: salads[0]["comment"],
+                        username: widget.username,
+                      ));
+                },
+                color: Color(0xFFFFFAEB),
+                name: "Honey lime combo",
+                price: "2500 FCFA",
+                image: "assets/images/combo/Honey_lime_combo.png"),
+            SaladTile(
+                onTap: () {
+                  navigateToPage(
+                      context,
+                      SaladDetail(
+                        title: salads[4]["name"],
+                        image: salads[4]["image"],
+                        price: salads[4]["price"],
+                        ingredients: salads[4]["ingredients"],
+                        comment: salads[4]["comment"],
+                        username: widget.username,
+                      ));
+                },
+                color: Color.fromARGB(72, 255, 165, 81),
+                name: "Berry mango combo",
+                price: "2500 FCFA",
+                image: "assets/images/combo/berry_fruit_combo.png"),
+          ],
+        ),
+      )
+    ];
+
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -162,7 +251,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(fontSize: 20.h),
                       children: [
                         TextSpan(
-                            text: " What fruit salad \ncombo do you want today ?",
+                            text:
+                                " What fruit salad \ncombo do you want today ?",
                             style: TextStyle(
                                 color: darkBlue, fontWeight: FontWeight.bold))
                       ]),
@@ -196,11 +286,35 @@ class _HomeScreenState extends State<HomeScreen> {
                     scrollDirection: Axis.horizontal,
                     children: [
                       SaladTile(
+                          onTap: () {
+                            navigateToPage(
+                                context,
+                                SaladDetail(
+                                  title: salads[1]["name"],
+                                  image: salads[1]["image"],
+                                  price: salads[1]["price"],
+                                  ingredients: salads[1]["ingredients"],
+                                  comment: salads[1]["comment"],
+                                  username: widget.username,
+                                ));
+                          },
                           color: white,
                           name: "Honey lime combo",
                           price: "2500 FCFA",
                           image: "assets/images/combo/Honey_lime_combo.png"),
                       SaladTile(
+                          onTap: () {
+                            navigateToPage(
+                                context,
+                                SaladDetail(
+                                  title: salads[0]["name"],
+                                  image: salads[0]["image"],
+                                  price: salads[0]["price"],
+                                  ingredients: salads[0]["ingredients"],
+                                  comment: salads[0]["comment"],
+                                  username: widget.username,
+                                ));
+                          },
                           color: white,
                           name: "Berry mango combo",
                           price: "2500 FCFA",
