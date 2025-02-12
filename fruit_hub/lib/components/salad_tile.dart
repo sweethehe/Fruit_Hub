@@ -6,8 +6,10 @@ class SaladTile extends StatefulWidget {
   final String name;
   final String price;
   final String image;
+  final Color color;
   const SaladTile(
       {super.key,
+      required this.color,
       required this.name,
       required this.price,
       required this.image});
@@ -25,7 +27,7 @@ class _SaladTileState extends State<SaladTile> {
         width: 180.w,
         height: 183.h,
         decoration: BoxDecoration(
-          color: white,
+          color: widget.color,
           borderRadius: BorderRadius.all(Radius.circular(16.r)),
         ),
         padding: EdgeInsets.all(10.h),

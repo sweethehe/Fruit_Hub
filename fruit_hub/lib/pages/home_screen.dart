@@ -34,10 +34,12 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.horizontal,
         children: [
           SaladTile(
+            color: Color(0xFFFFFAEB),
               name: "Quinoa Salad",
               price: "2500 FCFA",
               image: "assets/images/combo/quinoa_salad.png"),
           SaladTile(
+              color: Color.fromARGB(72, 255, 165, 81),
               name: "Tropical Fruit Salad",
               price: "2500 FCFA",
               image: "assets/images/combo/tropical_fruit_salad.png"),
@@ -50,10 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.horizontal,
         children: [
           SaladTile(
+              color: Color(0xFFF1EFF6),
               name: "Melon Fruit Salad",
               price: "2500 FCFA",
               image: "assets/images/combo/melon_fruit_salad.png"),
           SaladTile(
+              color: Color.fromARGB(72, 255, 165, 81),
               name: "Berry mango combo",
               price: "2500 FCFA",
               image: "assets/images/combo/berry_fruit_combo.png"),
@@ -66,10 +70,12 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.horizontal,
         children: [
           SaladTile(
+              color: Color(0xFFFFFAEB),
               name: "Berry Fruit Salad",
               price: "2500 FCFA",
               image: "assets/images/combo/berry_fruit_combo.png"),
           SaladTile(
+              color: Color.fromARGB(72, 255, 165, 81),
               name: "Berry mango combo",
               price: "2500 FCFA",
               image: "assets/images/combo/berry_fruit_combo.png"),
@@ -82,10 +88,12 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.horizontal,
         children: [
           SaladTile(
+              color: Color(0xFFFFFAEB),
               name: "Honey lime combo",
               price: "2500 FCFA",
               image: "assets/images/combo/Honey_lime_combo.png"),
           SaladTile(
+              color: Color.fromARGB(72, 255, 165, 81),
               name: "Berry mango combo",
               price: "2500 FCFA",
               image: "assets/images/combo/berry_fruit_combo.png"),
@@ -151,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text.rich(
                   TextSpan(
                       text: "Hello ${widget.username},",
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 20.h),
                       children: [
                         TextSpan(
                             text: " What fruit salad \ncombo do you want today ?",
@@ -188,10 +196,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     scrollDirection: Axis.horizontal,
                     children: [
                       SaladTile(
+                          color: white,
                           name: "Honey lime combo",
                           price: "2500 FCFA",
                           image: "assets/images/combo/Honey_lime_combo.png"),
                       SaladTile(
+                          color: white,
                           name: "Berry mango combo",
                           price: "2500 FCFA",
                           image: "assets/images/combo/berry_fruit_combo.png"),
@@ -223,7 +233,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: selectedCategory == index
                                   ? FontWeight.bold
                                   : FontWeight.normal,
-                              fontSize: selectedCategory == index ? 24.h : 16.h,
+                              fontSize: selectedCategory == index ? 22.h : 16.h,
                               decoration: selectedCategory == index
                                   ? TextDecoration.underline
                                   : TextDecoration.none,
