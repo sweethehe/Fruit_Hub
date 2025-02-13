@@ -4,6 +4,8 @@ import 'package:fruit_hub/components/basket_tile.dart';
 import 'package:fruit_hub/components/my_button.dart';
 import 'package:fruit_hub/components/my_textfield.dart';
 import 'package:fruit_hub/components/navigateToPage.dart';
+import 'package:fruit_hub/components/scaffold_messenger.dart';
+import 'package:fruit_hub/components/show_dialog.dart';
 import 'package:fruit_hub/components/ui.dart';
 import 'package:fruit_hub/pages/home_screen.dart';
 
@@ -134,61 +136,86 @@ class _BasketScreenState extends State<BasketScreen> {
                         ),
                         MyButton(
                             onPressed: () {
-                              showModalBottomSheet(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                      height: 400,
-                                      decoration: BoxDecoration(
-                                          color: white,
-                                          borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50))),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                        MyTextfield(
-                                            controller: deliveryController,
-                                            label: "Delivery address",
-                                            hintText: "Somewhere in the world",
-                                            obscureText: false),
-                                        MyTextfield(
-                                            controller: deliveryController,
-                                            label: "Number we can call",
-                                            hintText: "00 00 00 00 00",
-                                            obscureText: false),
-                                        const SizedBox(
-                                          height: 30,
+                              if (basket.isEmpty) {
+                                return CustomSnackBar.show(context,
+                                          "Your basket is empty");
+                              } else {
+                                showModalBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return Container(
+                                        height: 400,
+                                        decoration: BoxDecoration(
+                                            color: white,
+                                            borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(50),
+                                                topRight: Radius.circular(50))),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 20),
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                MyTextfield(
+                                                    controller:
+                                                        deliveryController,
+                                                    label: "Delivery address",
+                                                    hintText:
+                                                        "Somewhere in the world",
+                                                    obscureText: false),
+                                                MyTextfield(
+                                                    controller:
+                                                        deliveryController,
+                                                    label: "Number we can call",
+                                                    hintText: "00 00 00 00 00",
+                                                    obscureText: false),
+                                                const SizedBox(
+                                                  height: 30,
+                                                ),
+                                                MaterialButton(
+                                                    height: 50,
+                                                    minWidth:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width -
+                                                            80,
+                                                    shape: RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10),
+                                                        side: BorderSide(
+                                                            color:
+                                                                lightOrange)),
+                                                    color: white,
+                                                    child: Text(
+                                                      "Confirm",
+                                                      style: TextStyle(
+                                                          color: lightOrange,
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        basket.clear();
+                                                      });
+                                                      Navigator.pop(context);
+                                                      buildDialog(
+                                                          context,
+                                                          "Your order has been placed successfully !",
+                                                          "Okay :)", go: () {
+                                                        Navigator.pop(context);
+                                                      });
+                                                    }),
+                                                const SizedBox(
+                                                  height: 20,
+                                                )
+                                              ]),
                                         ),
-                                        MaterialButton(
-                                          height: 50,
-                                          minWidth: MediaQuery.of(context).size.width - 80,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(10),
-                                            side: BorderSide(color: lightOrange)
-                                          ),
-                                          color: white,
-                                          child: Text(
-                                            "Confirm",
-                                            style: TextStyle(
-                                              color: lightOrange,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold
-                                            ),
-                                          ),
-                                          onPressed: () {
-                                            setState(() {
-                                              basket.clear();
-                                            });
-                                            Navigator.pop(context);
-                                          }
-                                        ),
-                                        const SizedBox(
-                                          height: 20,
-                                        )
-                                      ]),
-                                    );
-                                  });
+                                      );
+                                    });
+                              }
                             },
                             text: "Checkout",
                             myColor: lightOrange)

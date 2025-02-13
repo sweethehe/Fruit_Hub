@@ -87,129 +87,131 @@ class _SaladDetailState extends State<SaladDetail> {
                         topLeft: Radius.circular(30))),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 25),
-                        child: Text(
-                          widget.title,
-                          style: TextStyle(
-                              fontSize: 25.h,
-                              fontWeight: FontWeight.bold,
-                              color: darkBlue),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                decrementSalad();
-                              },
-                              icon: Icon(
-                                Icons.remove_circle_outline_outlined,
-                                color: const Color.fromARGB(255, 57, 57, 57),
-                                size: 27.h,
-                              )),
-                          Text(
-                            nbSalad.toString(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 25),
+                          child: Text(
+                            widget.title,
                             style: TextStyle(
-                                fontSize: 22.h,
+                                fontSize: 25.h,
                                 fontWeight: FontWeight.bold,
-                                color: black),
+                                color: darkBlue),
                           ),
-                          IconButton(
-                              onPressed: () {
-                                incrementSalad();
-                              },
-                              icon: Icon(
-                                Icons.add_circle_outline_outlined,
-                                color: const Color.fromARGB(160, 255, 165, 81),
-                                size: 27.h,
-                              )),
-                          Text(
-                            widget.price,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  decrementSalad();
+                                },
+                                icon: Icon(
+                                  Icons.remove_circle_outline_outlined,
+                                  color: const Color.fromARGB(255, 57, 57, 57),
+                                  size: 27.h,
+                                )),
+                            Text(
+                              nbSalad.toString(),
+                              style: TextStyle(
+                                  fontSize: 22.h,
+                                  fontWeight: FontWeight.bold,
+                                  color: black),
+                            ),
+                            IconButton(
+                                onPressed: () {
+                                  incrementSalad();
+                                },
+                                icon: Icon(
+                                  Icons.add_circle_outline_outlined,
+                                  color: const Color.fromARGB(160, 255, 165, 81),
+                                  size: 27.h,
+                                )),
+                            Text(
+                              widget.price,
+                              style: TextStyle(
+                                  fontSize: 21.h,
+                                  fontWeight: FontWeight.bold,
+                                  color: darkBlue),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        Divider(
+                          color: Colors.grey[300],
+                          thickness: 1,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, bottom: 20),
+                          child: Text(
+                            "One Pack Contain : ",
                             style: TextStyle(
                                 fontSize: 21.h,
                                 fontWeight: FontWeight.bold,
-                                color: darkBlue),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Divider(
-                        color: Colors.grey[300],
-                        thickness: 1,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20, bottom: 20),
-                        child: Text(
-                          "One Pack Contain : ",
-                          style: TextStyle(
-                              fontSize: 21.h,
-                              fontWeight: FontWeight.bold,
-                              color: darkBlue,
-                              decoration: TextDecoration.underline,
-                              decorationColor: lightOrange,
-                              decorationThickness: 4),
+                                color: darkBlue,
+                                decoration: TextDecoration.underline,
+                                decorationColor: lightOrange,
+                                decorationThickness: 4),
+                          ),
                         ),
-                      ),
-                      Text(widget.ingredients,
-                          style: TextStyle(
-                              fontSize: 16.h,
-                              color: darkBlue,
-                              fontWeight: FontWeight.bold)),
-                      const SizedBox(height: 20),
-                      Divider(
-                        color: Colors.grey[300],
-                        thickness: 1,
-                      ),
-                      const SizedBox(height: 20),
-                      Text(widget.comment,
-                          style: TextStyle(
-                              fontSize: 15.h,
-                              color: const Color.fromARGB(199, 0, 0, 0),
-                              fontWeight: FontWeight.bold)),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 40),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                                decoration: BoxDecoration(
-                                    color:
-                                        const Color.fromARGB(51, 255, 165, 81),
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.favorite_border_outlined,
-                                      color: lightOrange,
-                                      size: 20.h,
-                                    ))),
-                            MyButton(
-                                onPressed: () {
-                                  if (nbSalad == 0) {
-                                    return CustomSnackBar.show(context,
-                                        "Please select at least one salad");
-                                  }
-                                  basket.add({
-                                    "name": widget.title,
-                                    "price": widget.price,
-                                    "nbSalad": nbSalad,
-                                    "image": widget.image,
-                                    "color": widget.color,
-                                  });
-                                  CustomSnackBar.show(context,
-                                        "${widget.title} added to your basket !");
-                                },
-                                text: "Add to basket",
-                                myColor: lightOrange)
-                          ],
+                        Text(widget.ingredients,
+                            style: TextStyle(
+                                fontSize: 16.h,
+                                color: darkBlue,
+                                fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 20),
+                        Divider(
+                          color: Colors.grey[300],
+                          thickness: 1,
                         ),
-                      )
-                    ],
+                        const SizedBox(height: 20),
+                        Text(widget.comment,
+                            style: TextStyle(
+                                fontSize: 15.h,
+                                color: const Color.fromARGB(199, 0, 0, 0),
+                                fontWeight: FontWeight.bold)),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 40),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  decoration: BoxDecoration(
+                                      color:
+                                          const Color.fromARGB(51, 255, 165, 81),
+                                      borderRadius: BorderRadius.circular(50)),
+                                  child: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.favorite_border_outlined,
+                                        color: lightOrange,
+                                        size: 20.h,
+                                      ))),
+                              MyButton(
+                                  onPressed: () {
+                                    if (nbSalad == 0) {
+                                      return CustomSnackBar.show(context,
+                                          "Please select at least one salad");
+                                    }
+                                    basket.add({
+                                      "name": widget.title,
+                                      "price": widget.price,
+                                      "nbSalad": nbSalad,
+                                      "image": widget.image,
+                                      "color": widget.color,
+                                    });
+                                    CustomSnackBar.show(context,
+                                          "${widget.title} added to your basket !");
+                                  },
+                                  text: "Add to basket",
+                                  myColor: lightOrange)
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

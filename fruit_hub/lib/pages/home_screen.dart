@@ -250,11 +250,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Transform.translate(
                           offset: const Offset(0, -5),
-                          child: const Text(
-                            "My Basket",
-                            style: TextStyle(
-                              color: darkBlue,
-                              fontSize: 15,
+                          child: GestureDetector(
+                            onTap: () {
+                              navigateToPage(
+                                  context,
+                                  BasketScreen(
+                                    username: widget.username,
+                                  ));
+                            },
+                            child: const Text(
+                              "My Basket",
+                              style: TextStyle(
+                                color: darkBlue,
+                                fontSize: 15,
+                              ),
                             ),
                           ),
                         ),
