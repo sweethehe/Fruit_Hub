@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/components/data_base.dart';
 import 'package:fruit_hub/components/my_button.dart';
 import 'package:fruit_hub/components/navigateToPage.dart';
+import 'package:fruit_hub/components/scaffold_messenger.dart';
 import 'package:fruit_hub/components/ui.dart';
 import 'package:fruit_hub/pages/home_screen.dart';
 
@@ -12,6 +14,7 @@ class SaladDetail extends StatefulWidget {
   final String ingredients;
   final String comment;
   final String username;
+  final Color color;
   const SaladDetail(
       {super.key,
       required this.title,
@@ -19,7 +22,8 @@ class SaladDetail extends StatefulWidget {
       required this.price,
       required this.ingredients,
       required this.comment,
-      required this.username});
+      required this.username,
+      required this.color});
 
   @override
   State<SaladDetail> createState() => _SaladDetailState();
@@ -87,8 +91,7 @@ class _SaladDetailState extends State<SaladDetail> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 25),
+                        padding: const EdgeInsets.symmetric(vertical: 25),
                         child: Text(
                           widget.title,
                           style: TextStyle(
@@ -156,8 +159,7 @@ class _SaladDetailState extends State<SaladDetail> {
                           style: TextStyle(
                               fontSize: 16.h,
                               color: darkBlue,
-                              fontWeight: FontWeight.bold
-                      )),
+                              fontWeight: FontWeight.bold)),
                       const SizedBox(height: 20),
                       Divider(
                         color: Colors.grey[300],
@@ -168,21 +170,43 @@ class _SaladDetailState extends State<SaladDetail> {
                           style: TextStyle(
                               fontSize: 15.h,
                               color: const Color.fromARGB(199, 0, 0, 0),
-                              fontWeight: FontWeight.bold
-                      )),
+                              fontWeight: FontWeight.bold)),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 40),
                         child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(51, 255, 165, 81),
-                              borderRadius: BorderRadius.circular(50)
-                            ),
-                            child: IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border_outlined, color: lightOrange, size: 20.h,))),
-                            MyButton(onPressed: () {}, text: "Add to basket", myColor: lightOrange)
-                        ],
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                decoration: BoxDecoration(
+                                    color:
+                                        const Color.fromARGB(51, 255, 165, 81),
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.favorite_border_outlined,
+                                      color: lightOrange,
+                                      size: 20.h,
+                                    ))),
+                            MyButton(
+                                onPressed: () {
+                                  if (nbSalad == 0) {
+                                    return CustomSnackBar.show(context,
+                                        "Please select at least one salad");
+                                  }
+                                  basket.add({
+                                    "name": widget.title,
+                                    "price": widget.price,
+                                    "nbSalad": nbSalad,
+                                    "image": widget.image,
+                                    "color": widget.color,
+                                  });
+                                  CustomSnackBar.show(context,
+                                        "${widget.title} added to your basket !");
+                                },
+                                text: "Add to basket",
+                                myColor: lightOrange)
+                          ],
                         ),
                       )
                     ],

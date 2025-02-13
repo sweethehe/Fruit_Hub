@@ -45,7 +45,7 @@ List<Map> salads = [
         "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you to make",
   },
   {
-    "image": "aassets/images/combo/berry_fruit_combo.png",
+    "image": "assets/images/combo/berry_fruit_combo.png",
     "name": "Berry mango combo",
     "price": "2500 FCFA",
     "ingredients":
@@ -53,4 +53,7 @@ List<Map> salads = [
     "comment":
         "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you to make",
   },
+];
+
+List<Map> basket = [
 ];

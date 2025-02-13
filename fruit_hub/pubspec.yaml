@@ -9,8 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.3
   flutter_screenutil: ^5.9.3
   google_fonts: ^6.2.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
 
 dev_dependencies:
   flutter_test:

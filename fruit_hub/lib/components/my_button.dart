@@ -23,7 +23,7 @@ class _MyButtonState extends State<MyButton> {
     double screenWidth = MediaQuery.of(context).size.width;
     return MaterialButton(
       onPressed: widget.onPressed,
-      minWidth: screenWidth * 0.7,
+      minWidth: screenWidth * 0.6,
       color: widget.myColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       padding: const EdgeInsets.all(15),

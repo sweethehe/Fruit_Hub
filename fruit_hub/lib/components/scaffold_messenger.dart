@@ -17,7 +17,7 @@ class CustomSnackBar {
         ],
       ),
       duration: const Duration(seconds: 3),
-      backgroundColor: lightOrange,
+      backgroundColor: const Color.fromARGB(255, 254, 187, 123),
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),

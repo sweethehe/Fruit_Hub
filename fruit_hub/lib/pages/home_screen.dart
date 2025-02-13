@@ -5,6 +5,7 @@ import 'package:fruit_hub/components/navigateToPage.dart';
 import 'package:fruit_hub/components/salad_tile.dart';
 import 'package:fruit_hub/components/search_bar.dart';
 import 'package:fruit_hub/components/ui.dart';
+import 'package:fruit_hub/pages/basket_screen.dart';
 import 'package:fruit_hub/pages/salad_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,10 +47,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ingredients: salads[2]["ingredients"],
                         comment: salads[2]["comment"],
                         username: widget.username,
+                        color: Color(0xFFFFFAEB),
                       ));
                 },
                 color: Color(0xFFFFFAEB),
-                name: "Quinoa Salad",
+                name: "Quinoa Fruit Salad",
                 price: "2500 FCFA",
                 image: "assets/images/combo/quinoa_salad.png"),
             SaladTile(
@@ -63,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ingredients: salads[3]["ingredients"],
                         comment: salads[3]["comment"],
                         username: widget.username,
+                        color: Color.fromARGB(72, 255, 165, 81),
                       ));
                 },
                 color: Color.fromARGB(72, 255, 165, 81),
@@ -88,6 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ingredients: salads[4]["ingredients"],
                         comment: salads[4]["comment"],
                         username: widget.username,
+                        color: Color(0xFFF1EFF6),
                       ));
                 },
                 color: Color(0xFFF1EFF6),
@@ -105,6 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ingredients: salads[5]["ingredients"],
                         comment: salads[5]["comment"],
                         username: widget.username,
+                        color: Color.fromARGB(72, 255, 165, 81),
                       ));
                 },
                 color: Color.fromARGB(72, 255, 165, 81),
@@ -130,6 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ingredients: salads[5]["ingredients"],
                         comment: salads[5]["comment"],
                         username: widget.username,
+                        color: Color(0xFFFFFAEB),
                       ));
                 },
                 color: Color(0xFFFFFAEB),
@@ -147,6 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ingredients: salads[4]["ingredients"],
                         comment: salads[4]["comment"],
                         username: widget.username,
+                        color: Color.fromARGB(72, 255, 165, 81),
                       ));
                 },
                 color: Color.fromARGB(72, 255, 165, 81),
@@ -172,6 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ingredients: salads[0]["ingredients"],
                         comment: salads[0]["comment"],
                         username: widget.username,
+                        color: Color(0xFFFFFAEB),
                       ));
                 },
                 color: Color(0xFFFFFAEB),
@@ -189,6 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ingredients: salads[4]["ingredients"],
                         comment: salads[4]["comment"],
                         username: widget.username,
+                        color: Color.fromARGB(72, 255, 165, 81),
                       ));
                 },
                 color: Color.fromARGB(72, 255, 165, 81),
@@ -200,42 +209,60 @@ class _HomeScreenState extends State<HomeScreen> {
       )
     ];
 
+    ///////////////////////////////////////////////////////////////////////////////////
+
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.menu_rounded),
-                  onPressed: () {},
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+          child: Container(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            child: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              scrolledUnderElevation: 0,
+              surfaceTintColor: Colors.transparent,
+              automaticallyImplyLeading: false,
+              title: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      icon: const Icon(
-                        Icons.shopping_basket_rounded,
-                        color: lightOrange,
-                        size: 30,
-                      ),
+                      icon: const Icon(Icons.menu_rounded),
                       onPressed: () {},
                     ),
-                    Transform.translate(
-                      offset: const Offset(0, -5),
-                      child: const Text(
-                        "My Basket",
-                        style: TextStyle(
-                          color: darkBlue,
-                          fontSize: 15,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.shopping_basket_rounded,
+                            color: lightOrange,
+                            size: 30,
+                          ),
+                          onPressed: () {
+                            navigateToPage(
+                                context,
+                                BasketScreen(
+                                  username: widget.username,
+                                ));
+                          },
                         ),
-                      ),
+                        Transform.translate(
+                          offset: const Offset(0, -5),
+                          child: const Text(
+                            "My Basket",
+                            style: TextStyle(
+                              color: darkBlue,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
@@ -296,6 +323,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ingredients: salads[1]["ingredients"],
                                   comment: salads[1]["comment"],
                                   username: widget.username,
+                                  color: white,
                                 ));
                           },
                           color: white,
@@ -313,6 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ingredients: salads[0]["ingredients"],
                                   comment: salads[0]["comment"],
                                   username: widget.username,
+                                  color: white,
                                 ));
                           },
                           color: white,

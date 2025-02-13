@@ -59,7 +59,7 @@ class _SaladTileState extends State<SaladTile> {
                       fontSize: 16.h,
                       fontWeight: FontWeight.bold)),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(widget.price,
                       style: TextStyle(
