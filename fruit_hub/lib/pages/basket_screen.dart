@@ -116,110 +116,121 @@ class _BasketScreenState extends State<BasketScreen> {
                   child: Padding(
                     padding:
                         const EdgeInsets.only(bottom: 40, left: 20, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Total",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 14.h),
-                            ),
-                            Text(calculateTotal(),
+                    child: Container(
+                      color: Scaffold().backgroundColor,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Total",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15.h,
-                                    color: darkBlue))
-                          ],
-                        ),
-                        MyButton(
-                            onPressed: () {
-                              if (basket.isEmpty) {
-                                return CustomSnackBar.show(context,
-                                          "Your basket is empty");
-                              } else {
-                                showModalBottomSheet(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return Container(
-                                        height: 400,
-                                        decoration: BoxDecoration(
-                                            color: white,
-                                            borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(50),
-                                                topRight: Radius.circular(50))),
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 20),
-                                          child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                MyTextfield(
-                                                    controller:
-                                                        deliveryController,
-                                                    label: "Delivery address",
-                                                    hintText:
-                                                        "Somewhere in the world",
-                                                    obscureText: false),
-                                                MyTextfield(
-                                                    controller:
-                                                        deliveryController,
-                                                    label: "Number we can call",
-                                                    hintText: "00 00 00 00 00",
-                                                    obscureText: false),
-                                                const SizedBox(
-                                                  height: 30,
-                                                ),
-                                                MaterialButton(
-                                                    height: 50,
-                                                    minWidth:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .width -
-                                                            80,
-                                                    shape: RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10),
-                                                        side: BorderSide(
-                                                            color:
-                                                                lightOrange)),
-                                                    color: white,
-                                                    child: Text(
-                                                      "Confirm",
-                                                      style: TextStyle(
-                                                          color: lightOrange,
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                    onPressed: () {
-                                                      setState(() {
-                                                        basket.clear();
-                                                      });
-                                                      Navigator.pop(context);
-                                                      buildDialog(
-                                                          context,
-                                                          "Your order has been placed successfully !",
-                                                          "Okay :)", go: () {
+                                    fontWeight: FontWeight.bold, fontSize: 14.h),
+                              ),
+                              Text(calculateTotal(),
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15.h,
+                                      color: darkBlue))
+                            ],
+                          ),
+                          MyButton(
+                              onPressed: () {
+                                if (basket.isEmpty) {
+                                  return CustomSnackBar.show(context,
+                                            "Your basket is empty", const Color.fromARGB(255, 254, 187, 123),);
+                                } else {
+                                  showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                            bottom: MediaQuery.of(context).viewInsets.bottom
+                                          ),
+                                          child: Container(
+                                            height: 400,
+                                            decoration: BoxDecoration(
+                                                color: white,
+                                                borderRadius: BorderRadius.only(
+                                                    topLeft: Radius.circular(50),
+                                                    topRight: Radius.circular(50))),
+                                            child: SingleChildScrollView(
+                                              child: Padding(
+                                                padding: const EdgeInsets.symmetric(
+                                                    horizontal: 20, vertical: 20),
+                                                child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.center,
+                                                    children: [
+                                                  MyTextfield(
+                                                      controller:
+                                                          deliveryController,
+                                                      label: "Delivery address",
+                                                      hintText:
+                                                          "Somewhere in the world",
+                                                      obscureText: false),
+                                                  MyTextfield(
+                                                      controller:
+                                                          numberController,
+                                                      label: "Number we can call",
+                                                      hintText: "00 00 00 00 00",
+                                                      obscureText: false),
+                                                  const SizedBox(
+                                                    height: 30,
+                                                  ),
+                                                  MaterialButton(
+                                                      height: 50,
+                                                      minWidth:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width -
+                                                              80,
+                                                      shape: RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(10),
+                                                          side: BorderSide(
+                                                              color:
+                                                                  lightOrange)),
+                                                      color: white,
+                                                      child: Text(
+                                                        "Confirm",
+                                                        style: TextStyle(
+                                                            color: lightOrange,
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                                FontWeight.bold),
+                                                      ),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          basket.clear();
+                                                        });
                                                         Navigator.pop(context);
-                                                      });
-                                                    }),
-                                                const SizedBox(
-                                                  height: 20,
-                                                )
-                                              ]),
-                                        ),
-                                      );
-                                    });
-                              }
-                            },
-                            text: "Checkout",
-                            myColor: lightOrange)
-                      ],
+                                                        buildDialog(
+                                                            context,
+                                                            "Your order has been placed successfully !",
+                                                            "Okay :)", go: () {
+                                                          Navigator.pop(context);
+                                                        });
+                                                      }),
+                                                  const SizedBox(
+                                                    height: 20,
+                                                  )
+                                                ]),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      });
+                                }
+                              },
+                              text: "Checkout",
+                              myColor: lightOrange)
+                        ],
+                      ),
                     ),
                   ),
                 ),

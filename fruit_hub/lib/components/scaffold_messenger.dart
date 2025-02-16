@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub/components/ui.dart';
 
 class CustomSnackBar {
-  static void show(BuildContext context, String message) {
+  static void show(BuildContext context, String message, Color color) {
     final snackBar = SnackBar(
       content: Row(
         children: [
@@ -17,7 +17,7 @@ class CustomSnackBar {
         ],
       ),
       duration: const Duration(seconds: 3),
-      backgroundColor: const Color.fromARGB(255, 254, 187, 123),
+      backgroundColor: color,
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),

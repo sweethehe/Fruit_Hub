@@ -6,7 +6,7 @@ List<Map> salads = [
     "ingredients":
         "Blueberries, Strawberries, Mango, Fresh mint.",
     "comment":
-        "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you to make",
+        "If you are looking for a new fruit combo to eat today, berry mango combo is the perfect combo for you to take",
   },
   {
     "image": "assets/images/combo/Honey_lime_combo.png",
@@ -15,7 +15,7 @@ List<Map> salads = [
     "ingredients":
         "Honey, Lime, Blueberries, Strawberries, Mango, Fresh mint.",
     "comment":
-        "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you to make",
+        "If you are looking for a new fruit combo to eat today, honey lime combo is the perfect combo for you to take",
   },
   {
     "image": "assets/images/combo/quinoa_salad.png",
@@ -24,7 +24,7 @@ List<Map> salads = [
     "ingredients":
         "Red Quinoa, Lime, Honey, Blueberries, Strawberries, Mango, Fresh mint.",
     "comment":
-        "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you to make",
+        "If you are looking for a new fruit salad to eat today, quinoa is the perfect salad for you to take",
   },
   {
     "image": "assets/images/combo/tropical_fruit_salad.png",
@@ -33,7 +33,7 @@ List<Map> salads = [
     "ingredients":
         "Mandarin, Pineapple, Blueberries, Strawberries, Mango, Fresh mint.",
     "comment":
-        "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you to make",
+        "If you are looking for a new fruit salad to eat today, tropical is the perfect salad for you to take",
   },
   {
     "image": "assets/images/combo/melon_fruit_salad.png",
@@ -42,7 +42,7 @@ List<Map> salads = [
     "ingredients":
         "Melon, Blueberries, Strawberries, Mango, Fresh mint.",
     "comment":
-        "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you to make",
+        "If you are looking for a new fruit salad to eat today, Melon is the perfect salad for you to take",
   },
   {
     "image": "assets/images/combo/berry_fruit_combo.png",
@@ -51,9 +51,12 @@ List<Map> salads = [
     "ingredients":
         "Berries, Strawberries, Mango, Fresh mint.",
     "comment":
-        "If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you to make",
+        "If you are looking for a new fruit combo to eat today, Berry mango is the perfect combo for you to take",
   },
 ];
 
 List<Map> basket = [
+];
+
+List<Map> favorites = [
 ];

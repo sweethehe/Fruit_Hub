@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> categoryContents = [
+      // Hottest
       SizedBox(
         height: 250,
         child: ListView(
@@ -75,6 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+
+      // Popular
       SizedBox(
         height: 250,
         child: ListView(
@@ -119,6 +122,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+
+      // New Combo
       SizedBox(
         height: 250,
         child: ListView(
@@ -163,48 +168,36 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+
+      // Favorites
       SizedBox(
         height: 250,
-        child: ListView(
+        child: favorites.isEmpty
+        ? Center(child: Text("No favorites, try adding some !", style: TextStyle(fontSize: 20, color: listGrey),))
+        : ListView.builder(
           scrollDirection: Axis.horizontal,
-          children: [
-            SaladTile(
+          itemCount: favorites.length,
+          itemBuilder: (context, index) {
+            final favorite = favorites[index];
+            return SaladTile(
                 onTap: () {
                   navigateToPage(
                       context,
                       SaladDetail(
-                        title: salads[0]["name"],
-                        image: salads[0]["image"],
-                        price: salads[0]["price"],
-                        ingredients: salads[0]["ingredients"],
-                        comment: salads[0]["comment"],
+                        title: favorite["name"],
+                        image: favorite["image"],
+                        price: favorite["price"],
+                        ingredients: favorite["ingredient"],
+                        comment: favorite["comment"],
                         username: widget.username,
-                        color: Color(0xFFFFFAEB),
+                        color: Color.fromARGB(70, 255, 192, 137),
                       ));
                 },
-                color: Color(0xFFFFFAEB),
-                name: "Honey lime combo",
-                price: "2500 FCFA",
-                image: "assets/images/combo/Honey_lime_combo.png"),
-            SaladTile(
-                onTap: () {
-                  navigateToPage(
-                      context,
-                      SaladDetail(
-                        title: salads[4]["name"],
-                        image: salads[4]["image"],
-                        price: salads[4]["price"],
-                        ingredients: salads[4]["ingredients"],
-                        comment: salads[4]["comment"],
-                        username: widget.username,
-                        color: Color.fromARGB(72, 255, 165, 81),
-                      ));
-                },
-                color: Color.fromARGB(72, 255, 165, 81),
-                name: "Berry mango combo",
-                price: "2500 FCFA",
-                image: "assets/images/combo/berry_fruit_combo.png"),
-          ],
+                color: Color.fromARGB(70, 255, 192, 137),
+                name: favorite["name"],
+                price: favorite["price"],
+                image: favorite["image"]);
+          },
         ),
       )
     ];

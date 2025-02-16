@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/components/data_base.dart';
 import 'package:fruit_hub/components/ui.dart';
 
 class SaladTile extends StatefulWidget {
@@ -42,7 +43,9 @@ class _SaladTileState extends State<SaladTile> {
                 child: IconButton(
                     onPressed: () {},
                     icon: Icon(
-                      Icons.favorite_border_rounded,
+                      favorites.any((item) => item["name"] == widget.name)
+                          ? Icons.favorite_outlined
+                          : Icons.favorite_border_outlined,
                       color: lightOrange,
                       size: 20.h,
                     )),

@@ -65,7 +65,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   navigateToPage(
                       context, HomeScreen(username: username.text.trim()));
                 } else {
-                  CustomSnackBar.show(context, "Please enter a username");
+                  CustomSnackBar.show(context, "Please enter a username", const Color.fromARGB(255, 254, 187, 123),);
                 }
               },
               text: "Start Ordering",

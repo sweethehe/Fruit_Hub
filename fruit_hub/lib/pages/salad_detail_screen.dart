@@ -126,7 +126,8 @@ class _SaladDetailState extends State<SaladDetail> {
                                 },
                                 icon: Icon(
                                   Icons.add_circle_outline_outlined,
-                                  color: const Color.fromARGB(160, 255, 165, 81),
+                                  color:
+                                      const Color.fromARGB(160, 255, 165, 81),
                                   size: 27.h,
                                 )),
                             Text(
@@ -179,21 +180,57 @@ class _SaladDetailState extends State<SaladDetail> {
                             children: [
                               Container(
                                   decoration: BoxDecoration(
-                                      color:
-                                          const Color.fromARGB(51, 255, 165, 81),
+                                      color: const Color.fromARGB(
+                                          51, 255, 165, 81),
                                       borderRadius: BorderRadius.circular(50)),
                                   child: IconButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        setState(() {
+                                          if (favorites.any((item) =>
+                                              item["name"] == widget.title)) {
+                                            favorites.removeWhere((item) =>
+                                                item["name"] == widget.title);
+                                            CustomSnackBar.show(
+                                              context,
+                                              "${widget.title} removed from your favorites",
+                                              listGrey,
+                                            );
+                                          } else {
+                                            favorites.add({
+                                              "name": widget.title,
+                                              "price": widget.price,
+                                              "nbSalad": nbSalad,
+                                              "image": widget.image,
+                                              "color": widget.color,
+                                              "ingredient": widget.ingredients,
+                                              "comment": widget.comment
+                                            });
+                                            CustomSnackBar.show(
+                                              context,
+                                              "${widget.title} added to your favorites",
+                                              const Color.fromARGB(
+                                            255, 254, 187, 123),
+                                            );
+                                          }
+                                        });
+                                      },
                                       icon: Icon(
-                                        Icons.favorite_border_outlined,
+                                        favorites.any((item) =>
+                                                item["name"] == widget.title)
+                                            ? Icons.favorite_outlined
+                                            : Icons.favorite_border_outlined,
                                         color: lightOrange,
                                         size: 20.h,
                                       ))),
                               MyButton(
                                   onPressed: () {
                                     if (nbSalad == 0) {
-                                      return CustomSnackBar.show(context,
-                                          "Please select at least one salad");
+                                      return CustomSnackBar.show(
+                                        context,
+                                        "Please select at least one salad",
+                                        const Color.fromARGB(
+                                            255, 254, 187, 123),
+                                      );
                                     }
                                     basket.add({
                                       "name": widget.title,
@@ -202,8 +239,11 @@ class _SaladDetailState extends State<SaladDetail> {
                                       "image": widget.image,
                                       "color": widget.color,
                                     });
-                                    CustomSnackBar.show(context,
-                                          "${widget.title} added to your basket !");
+                                    CustomSnackBar.show(
+                                        context,
+                                        "${widget.title} added to your basket !",
+                                        const Color.fromARGB(
+                                            255, 122, 105, 229));
                                   },
                                   text: "Add to basket",
                                   myColor: lightOrange)
