@@ -14,4 +14,4 @@ You can download the .apk by checking the releases of this repository !
 
 Figma link : https://www.figma.com/design/Bt09AJSHe1jna7QfsNe3XW/Mobile-UI-Kit%3A-Ecommerce-(Community)?node-id=12-0&p=f&t=BcXr2qHRlz4Sa6ft-0
 
-![Image Alt](https://github.com/sweethehe/Fruit_Hub/blob/95c2b83b1acf9453a0d2055b213f81cbac2ddc71/FruitHub_pr%C3%A9sentation.png)
+![Image Alt](https://github.com/sweethehe/Fruit_Hub/blob/main/FruitHub_presentation.png)
